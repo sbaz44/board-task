@@ -13,10 +13,8 @@ export default function ViewDetail() {
     let key = process.env.REACT_APP_API_KEY;
     let url = type + "/" + idee + ".json?apikey=" + key;
     setisLoading(true);
-
     const res = await axios.get(url);
     let data = await res.data;
-    console.log(res);
     await setData(data);
     setisLoading(false);
   };
@@ -99,7 +97,7 @@ export default function ViewDetail() {
                   <h4>{data.pleaseNote}</h4>
                 </React.Fragment>
               )}
-              {data.generalInfo && (
+              {data.generalInfo.generalRule && (
                 <React.Fragment>
                   <h3>Please Note:</h3>
                   <h4>{data.generalInfo.generalRule}</h4>
