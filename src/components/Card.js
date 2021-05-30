@@ -103,7 +103,7 @@ export default function Card({ image, date, name, time, id, passChildData }) {
     <div className="card">
       <img
         src={favorite}
-        alt="Event image"
+        alt="Event"
         className={isPresent(id) ? "active-favorite" : "favorite"}
         onClick={() => {
           let obj = {

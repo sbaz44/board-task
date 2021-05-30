@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import Card from "../components/Card";
 import VenueCard from "../components/VenueCard";
-import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import debounce from "lodash.debounce";
 import Pagination from "../components/Pagination";
@@ -23,11 +22,8 @@ export default function Home() {
   const [count, setCount] = useState(0);
   const [total, setTotal] = useState(0);
   const [isLoading, setisLoading] = useState(true);
-  const event_favorites = useSelector((state) => state.event_favorites);
   const debouncedSave = useDebounce((tab, nextValue, code) => {
     getData(tab, nextValue, code);
-    console.log(code);
-
     setCode(code);
   }, 1000);
 
@@ -35,7 +31,6 @@ export default function Home() {
     getData(tab, keyword, nextValue);
     setKeyword(keyword);
   }, 1000);
-  const dispatch = useDispatch();
 
   const handleChange = (event) => {
     const { value: nextValue } = event.target;
@@ -55,33 +50,24 @@ export default function Home() {
       getData(activeTab, keyword, code);
     } else if (name === "decrement") {
       currentPage -= 1;
-
       getData(activeTab, keyword, code);
     }
   };
 
   const getData = async (tab, keyword = "", code = "") => {
-    console.log(keyword);
-    console.log(code);
-    console.log(tab);
     let key = process.env.REACT_APP_API_KEY;
     setisLoading(true);
     let url = tab.toLocaleLowerCase() + ".json?";
     if (code && !keyword) {
-      console.log("code");
       url += "countryCode=" + code;
     } else if (!code && keyword) {
-      console.log(!code && keyword);
       url += "keyword=" + keyword;
     } else if (code && keyword) {
-      console.log("code && keyword");
       url += "countryCode=" + code + "&keyword=" + keyword;
     }
     url += "&apikey=" + key + "&page=" + currentPage;
-    console.log(url);
     const res = await axios.get(url);
     let data = await res.data;
-    // console.log(data);
     setCount(data.page.totalElements);
     setTotal(data.page.totalPages);
     if (data.page.totalElements === 0 || !data._embedded) {
@@ -91,7 +77,6 @@ export default function Home() {
     }
     if (tab === "Events") await setData(res.data._embedded.events);
     else await setData(res.data._embedded.venues);
-
     setisLoading(false);
   };
   useEffect(() => {
@@ -140,9 +125,6 @@ export default function Home() {
   };
   return (
     <div className="home-wrapper">
-      {console.log(activeTab)}
-      {/* {console.log(keyword)}
-      {console.log(code)} */}
       <header>
         <form className="search-container">
           <input

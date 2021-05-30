@@ -17,20 +17,15 @@ const reducer = (state = initialState, action) => {
 
   switch (action.type) {
     case "ADD_EVENT_FAVORITE": {
-      console.log("ADD_EVENT_FAVORITE");
       let itemToAdd = action.value;
       let arr = state.event_favorites;
       if (newState.event_favorites.length !== 0) {
-        console.log("if");
-
         let existed_item = newState.event_favorites.find(
           (item) => itemToAdd.id === item.id
         );
-        console.log(existed_item);
         if (existed_item === undefined) {
           arr.push(itemToAdd);
           newState.event_favorites = arr;
-          console.log(newState.event_favorites);
         } else {
           var removeIndex = newState.event_favorites
             .map(function (item) {
@@ -41,7 +36,6 @@ const reducer = (state = initialState, action) => {
           newState.event_favorites.splice(removeIndex, 1);
         }
       } else {
-        console.log("else");
         arr.push(itemToAdd);
         newState.event_favorites = arr;
       }
@@ -53,20 +47,15 @@ const reducer = (state = initialState, action) => {
     }
 
     case "ADD_VENUE_FAVORITE": {
-      console.log("ADD_VENUE_FAVORITE");
       let itemToAdd = action.value;
       let arr = state.venue_favorites;
       if (newState.venue_favorites.length !== 0) {
-        console.log("if");
-
         let existed_item = newState.venue_favorites.find(
           (item) => itemToAdd.id === item.id
         );
-        console.log(existed_item);
         if (existed_item === undefined) {
           arr.push(itemToAdd);
           newState.venue_favorites = arr;
-          console.log(newState.venue_favorites);
         } else {
           var removeIndex = newState.venue_favorites
             .map(function (item) {
@@ -77,7 +66,6 @@ const reducer = (state = initialState, action) => {
           newState.venue_favorites.splice(removeIndex, 1);
         }
       } else {
-        console.log("else");
         arr.push(itemToAdd);
         newState.venue_favorites = arr;
       }

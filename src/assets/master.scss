@@ -120,7 +120,7 @@ header {
     width: 21vw;
   }
   @media only screen and (max-width: 768px) {
-    width: 45vw;
+    width: 44.3vw;
   }
   .favorite {
     position: absolute;
@@ -392,7 +392,7 @@ header {
   .data-wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     // justify-content: space-around;
     margin-top: 20px;
     padding: 0 2vw;
@@ -401,7 +401,7 @@ header {
       padding: 0;
     }
     @media only screen and (max-width: 768px) {
-      padding: 0;
+      padding: 0 2vw;
     }
   }
   .query {
@@ -413,19 +413,112 @@ header {
   .data-wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     margin-top: 20px;
   }
 }
 .detail-wrapper {
+  @media only screen and (max-width: 768px) {
+    padding-bottom: 5vw;
+  }
   .data-wrapper {
-    h1 {
+    .header {
+      display: flex;
+      justify-content: space-between;
+      background-color: #adadad;
       margin-bottom: 2vw;
+      padding: 2vw 20vw;
+      font-size: 35px;
+      font-weight: bold;
+      @media only screen and (max-width: 768px) {
+        flex-direction: column;
+        padding: 2vw;
+      }
+      p {
+        @media only screen and (max-width: 768px) {
+          text-align: center;
+        }
+      }
+      .event-img {
+        width: 20vw;
+        object-fit: cover;
+        @media only screen and (max-width: 768px) {
+          width: 50vw;
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+      }
+      .img-container {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        @media only screen and (max-width: 768px) {
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+      button {
+        font-size: 20px;
+        border: none;
+        background-color: #fff;
+        border-radius: 12px;
+        margin-left: 1vw;
+        padding: 0.5vw;
+        cursor: pointer;
+        @media only screen and (max-width: 768px) {
+          padding: 1.5vw;
+          font-size: 18px;
+        }
+      }
+      a {
+        text-decoration: none;
+        color: #000;
+      }
     }
-    padding: 2vw;
-    .event-img {
-      width: 40vw;
-      object-fit: cover;
+    .row {
+      display: flex;
+      padding: 2vw 2vw;
+      // @media (min-width: 768px) and (max-width: 1024px) {
+      //   padding: 0;
+      // }
+      @media only screen and (max-width: 768px) {
+        flex-direction: column;
+      }
+    }
+    .slider {
+      width: 50vw;
+      @media only screen and (max-width: 768px) {
+        width: 100%;
+      }
+      .event-img {
+        // width: 40vw;
+        object-fit: cover;
+      }
+    }
+    .info {
+      margin-left: 2vw;
+      .price-range {
+        margin-bottom: 10px;
+      }
+      button {
+        font-size: 20px;
+        border: none;
+        background-color: #000;
+        border-radius: 12px;
+        padding: 0.5vw;
+        cursor: pointer;
+        margin-top: 20px;
+        @media only screen and (max-width: 768px) {
+          padding: 2.5vw;
+          font-size: 14px;
+        }
+      }
+
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
     }
   }
 }
