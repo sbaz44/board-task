@@ -49,33 +49,45 @@ const reducer = (state = initialState, action) => {
         "event_favorites",
         JSON.stringify(newState.event_favorites)
       );
-      // let itemToAdd = action.value;
-      // if (newState.cartItem.length != 0) {
-      //   console.log("if");
-      //   let existed_item = newState.cartItem.find(
-      //     (item) => itemToAdd.id === item.id
-      //   );
-      //   if (existed_item) {
-      //     console.log("if if");
-      //     existed_item.quantity += 1;
-      //     existed_item.totalPrice += itemToAdd.product_price;
-      //   } else {
-      //     console.log("if else");
-      //     itemToAdd.quantity = 1;
-      //     itemToAdd.totalPrice = itemToAdd.product_price;
-      //     newState.cartItem.push(itemToAdd);
-      //   }
-      // } else {
-      //   console.log("else");
-      //   itemToAdd.quantity = 1;
-      //   itemToAdd.totalPrice = itemToAdd.product_price;
-      //   newState.cartItem.push(itemToAdd);
-      // }
-      // console.log(newState.cartItem);
-      // localStorage.setItem("cart", JSON.stringify(newState.cartItem));
-      // //   newState.cartItem = action.value;
       break;
     }
+
+    case "ADD_VENUE_FAVORITE": {
+      console.log("ADD_VENUE_FAVORITE");
+      let itemToAdd = action.value;
+      let arr = state.venue_favorites;
+      if (newState.venue_favorites.length !== 0) {
+        console.log("if");
+
+        let existed_item = newState.venue_favorites.find(
+          (item) => itemToAdd.id === item.id
+        );
+        console.log(existed_item);
+        if (existed_item === undefined) {
+          arr.push(itemToAdd);
+          newState.venue_favorites = arr;
+          console.log(newState.venue_favorites);
+        } else {
+          var removeIndex = newState.venue_favorites
+            .map(function (item) {
+              return item.id;
+            })
+            .indexOf(itemToAdd.id);
+
+          newState.venue_favorites.splice(removeIndex, 1);
+        }
+      } else {
+        console.log("else");
+        arr.push(itemToAdd);
+        newState.venue_favorites = arr;
+      }
+      localStorage.setItem(
+        "venue_favorites",
+        JSON.stringify(newState.venue_favorites)
+      );
+      break;
+    }
+
     default:
       return newState;
   }

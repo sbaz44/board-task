@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import calendar from "../assets/image/calendar.png";
 import favorite from "../assets/image/favorite.png";
-import { useDispatch, useSelector } from "react-redux";
-
-export default function Card({ image, date, name, time, id }) {
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+export default function Card({ image, date, name, time, id, passChildData }) {
+  let history = useHistory();
   const dispatch = useDispatch();
-  const event_favorites = useSelector((state) => state.event_favorites);
   const [myDate, setMyDate] = useState({});
   const [events, setEvents] = useState(
     JSON.parse(localStorage.getItem("event_favorites"))
@@ -90,8 +90,7 @@ export default function Card({ image, date, name, time, id }) {
 
   const isPresent = (id) => {
     if (events === null) return;
-    console.log(id);
-    console.log(events);
+
     let existed_item = events.find((item) => id === item.id);
     if (existed_item) return true;
     return false;
@@ -102,7 +101,6 @@ export default function Card({ image, date, name, time, id }) {
 
   return (
     <div className="card">
-      {console.log(events)}
       <img
         src={favorite}
         alt="Event image"
@@ -120,14 +118,23 @@ export default function Card({ image, date, name, time, id }) {
             value: obj,
           });
           setEvents(JSON.parse(localStorage.getItem("event_favorites")));
+          if (passChildData) passChildData(true);
         }}
       />
-      <img src={image} alt="Event" className="card-image" />
-      <div className="event-date">
-        {myDate.date}
-        <br />
-        {myDate.month}
+      <div className="event-img">
+        <img
+          src={image}
+          alt="Event"
+          className="card-image"
+          onClick={() => history.push("/events/" + id)}
+        />
+        <div className="event-date">
+          {myDate.date}
+          <br />
+          {myDate.month}
+        </div>
       </div>
+
       <p className="name">{name}</p>
       <div className="time">
         <img src={calendar} alt="calendar" className="calendar" />
