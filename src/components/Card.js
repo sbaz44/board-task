@@ -16,7 +16,7 @@ export default function Card({ image, date, name, time, id, passChildData }) {
     var myDate = new Date(datetime);
 
     let daysList = [
-      "Sunday",
+      "Sundayy",
       "Monday",
       "Tuesday",
       "Wednesday",
