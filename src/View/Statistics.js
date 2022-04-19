@@ -10,8 +10,8 @@ class Statistics extends Component {
 
   componentDidMount() {
     setTimeout(() => {
-      this.setState({ type: "line", data: { ...dataa.line } });
-    }, 2000);
+      this.setState({ type: "bar", data: { ...dataa.bar } });
+    }, 100);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -32,11 +32,14 @@ class Statistics extends Component {
             },
           },
           scales: {
+            xAxes: [{ gridLines: { drawBorder: false } }],
+            yAxes: [{ gridLines: { drawBorder: false } }],
             x: {
               grid: {
                 display: false,
               },
               ticks: {
+                display: true, // remove y label
                 font: {
                   family: "Montserrat", // Your font family
                   size: 14,
@@ -46,9 +49,11 @@ class Statistics extends Component {
             y: {
               beginAtZero: true,
               grid: {
-                display: false,
+                display: true,
+                drawBorder: false, // remove y-axis border
               },
               ticks: {
+                display: true, // remove y label
                 font: {
                   family: "Montserrat", // Your font family
                   size: 14,
@@ -68,7 +73,6 @@ class Statistics extends Component {
     console.log(dataa, this.state);
     return (
       <div>
-        Shahbaz
         <canvas id="myChart" ref={this.chartRef} />
       </div>
     );

@@ -5,12 +5,16 @@
       {
         "label": "Dataset 1",
         "data": [407, 720, 512, 503, 684, 151, 907],
-        "backgroundColor": "rgba(255, 99, 132, 0.5)"
+        "backgroundColor": "rgba(255, 99, 132, 0.5)",
+        "borderSkipped": false,
+        "borderRadius": 50
       },
       {
         "label": "Dataset 2",
         "data": [773, 949, 685, 930, 115, 71, 46],
-        "backgroundColor": "rgba(53, 162, 235, 0.5)"
+        "backgroundColor": "rgba(53, 162, 235, 0.5)",
+        "borderRadius": 50,
+        "borderSkipped": false
       }
     ]
   },
