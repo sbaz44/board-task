@@ -1,0 +1,106 @@
+{
+  "bar": {
+    "labels": ["January", "February", "March", "April", "May", "June", "July"],
+    "datasets": [
+      {
+        "label": "Dataset 1",
+        "data": [407, 720, 512, 503, 684, 151, 907],
+        "backgroundColor": "rgba(255, 99, 132, 0.5)"
+      },
+      {
+        "label": "Dataset 2",
+        "data": [773, 949, 685, 930, 115, 71, 46],
+        "backgroundColor": "rgba(53, 162, 235, 0.5)"
+      }
+    ]
+  },
+  "stacked": {
+    "labels": ["January", "February", "March", "April", "May", "June", "July"],
+    "datasets": [
+      {
+        "label": "Dataset 1",
+        "data": [-469, 502, 465, 817, -367, -264, -589],
+        "backgroundColor": "rgb(255, 99, 132)"
+      },
+      {
+        "label": "Dataset 2",
+        "data": [-615, 635, 667, 809, -670, 80, -512],
+        "backgroundColor": "rgb(75, 192, 192)"
+      },
+      {
+        "label": "Dataset 3",
+        "data": [-568, 262, -390, -694, 780, 502, 14],
+        "backgroundColor": "rgb(53, 162, 235)"
+      }
+    ]
+  },
+  "line": {
+    "labels": ["January", "February", "March", "April", "May", "June", "July"],
+    "datasets": [
+      {
+        "label": "Dataset 1",
+        "data": [867, -700, -20, -288, 74, -625, -184],
+        "borderColor": "rgb(255, 99, 132)",
+        "backgroundColor": "rgba(255, 99, 132, 0.5)"
+      },
+      {
+        "label": "Dataset 2",
+        "data": [399, -7, -84, -350, 106, 263, -477],
+        "borderColor": "rgb(53, 162, 235)",
+        "backgroundColor": "rgba(53, 162, 235, 0.5)"
+      }
+    ]
+  },
+  "pie": {
+    "labels": ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    "datasets": [
+      {
+        "label": "# of Votes",
+        "data": [12, 19, 3, 5, 2, 3],
+        "backgroundColor": [
+          "rgba(255, 99, 132, 0.2)",
+          "rgba(54, 162, 235, 0.2)",
+          "rgba(255, 206, 86, 0.2)",
+          "rgba(75, 192, 192, 0.2)",
+          "rgba(153, 102, 255, 0.2)",
+          "rgba(255, 159, 64, 0.2)"
+        ],
+        "borderColor": [
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(153, 102, 255, 1)",
+          "rgba(255, 159, 64, 1)"
+        ],
+        "borderWidth": 1
+      }
+    ]
+  },
+  "doughnut": {
+    "labels": ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    "datasets": [
+      {
+        "label": "# of Votes",
+        "data": [12, 19, 3, 5, 2, 3],
+        "backgroundColor": [
+          "rgba(255, 99, 132, 0.2)",
+          "rgba(54, 162, 235, 0.2)",
+          "rgba(255, 206, 86, 0.2)",
+          "rgba(75, 192, 192, 0.2)",
+          "rgba(153, 102, 255, 0.2)",
+          "rgba(255, 159, 64, 0.2)"
+        ],
+        "borderColor": [
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(153, 102, 255, 1)",
+          "rgba(255, 159, 64, 1)"
+        ],
+        "borderWidth": 1
+      }
+    ]
+  }
+}
